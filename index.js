@@ -7,6 +7,13 @@ function renderUser(user){
     body.appendChild(h2);
 };
 
+function renderError(error){
+    const body = document.querySelector('body');
+    const h2 = document.createElement('h2');
+    h2.innerHTML = 'Unauthorized Access';
+    body.appendChild(h2);
+};
+
 function submitData(name, email){
 
     let anObj = {};
@@ -30,7 +37,6 @@ function submitData(name, email){
             renderUser(object);
             })
         .catch(function(error) {
-            alert('Unauthorized Access');
-            console.log(error.message);
+            renderError(error);
             }); 
 }
