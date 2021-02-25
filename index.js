@@ -35,6 +35,6 @@ function submitData(name, email){
             body.innerHTML = object["id"];
             })
         .catch(function(error) {
-            renderError(error);
+            error.message = 'Unauthorized Access';
             }); 
 }
