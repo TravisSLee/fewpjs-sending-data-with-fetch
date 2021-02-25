@@ -1,5 +1,12 @@
 // Add your code here
 
+function renderUser(user){
+    const body = document.querySelector('body');
+    const h2 = document.createElement('h2');
+    h2.innerHTML = user.id;
+    body.appendChild(h2);
+};
+
 function submitData(name, email){
 
     let anObj = {};
@@ -20,7 +27,7 @@ function submitData(name, email){
             return response.json();
             })
         .then(function(object) {
-            console.log(object);
+            renderUser(object);
             })
         .catch(function(error) {
             alert('Unauthorized Access');
