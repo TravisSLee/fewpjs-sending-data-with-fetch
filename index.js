@@ -2,16 +2,12 @@
 
 function renderUser(user){
     const body = document.querySelector('body');
-    const h2 = document.createElement('h2');
-    h2.innerHTML = user.id;
-    body.appendChild(h2);
+    body.innerHTML = user[id];
 };
 
 function renderError(error){
-    const body = document.querySelector('body');
-    const h2 = document.createElement('h2');
-    h2.innerHTML = 'Unauthorized Access';
-    body.appendChild(h2);
+    const body = document.querySelector('body'); 
+    body.innerHTML = 'Unauthorized Access';
 };
 
 function submitData(name, email){
@@ -34,7 +30,9 @@ function submitData(name, email){
             return response.json();
             })
         .then(function(object) {
-            renderUser(object);
+            const body = document.querySelector('body');
+            console.log(object);
+            body.innerHTML = object["id"];
             })
         .catch(function(error) {
             renderError(error);
